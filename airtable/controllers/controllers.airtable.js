@@ -7,11 +7,6 @@ module.exports = class AirtableData extends AirtableConfig{
         this.view = view || 'Grid view'
     }
 
-    config(apiKey, base){
-        this.apiKey = process.env.AIRTABLE_API_KEY || apiKey
-        this.base = process.env.AIRTABLE_BASE || base
-    }
-
     checkData(){
         console.log('base :',this.base);
         console.log('apiKey :',this.apiKey);
