@@ -1,8 +1,9 @@
-const AirtableConfig = require('./airtable/airtable').AirtableData
+const AirtableData = require('./airtable/airtable').AirtableData
 
-const a = new AirtableConfig('qfdsgvx', 'wvxbdf')
-const b = new AirtableConfig('qsfmdslgkjezrmlsfk', 'azertyuiop')
+const a = new AirtableData('COMMANDES')
+const b = new AirtableData('qsfmdslgkjezrmlsfk', 'azertyuiop')
 
 
 a.checkData()
+a.read()
 b.checkData()
