@@ -1,4 +1,5 @@
 const AirtableConfig = require("../config/config.airtable")
+const create = require("./methods/create.airtable")
 const read = require('./methods/read.airtable')
 
 module.exports = class AirtableData extends AirtableConfig{
@@ -17,5 +18,8 @@ module.exports = class AirtableData extends AirtableConfig{
     }
     async read(action){
         return await read(this.base, this.table, this.view, action)
+    }
+    async create(datas, action){
+        return await create(this.base, datas, this.table, action)
     }
 }
