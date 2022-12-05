@@ -1,18 +1,23 @@
 {
-  "name": "airtable-config",
+  "name": "airtable-connect",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple way to manage your Airtable connection",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:init": "jest --init",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Airtable","Configuration", "JavaScript", "NodeJS"],
+  "author": "Théo Gillet",
   "license": "ISC",
   "dependencies": {
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }
