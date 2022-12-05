@@ -9,6 +9,19 @@ This package is used to configure the Airtable integration for your project.
 npm install --save airtable-connect
 ```
 
+Create a ```.env``` file in the root of your project and add the following:
+
+```bash
+# If you use NodeJS or VanillaJS, you can add the following to your .env file
+AIRTABLE_API_KEY=
+AIRTABLE_BASE_ID=
+
+# If you use React, you can add the following to your .env file
+REACT_APP_AIRTABLE_API_KEY=
+REACT_APP_AIRTABLE_BASE_ID=
+
+```
+
 &nbsp;
 ### Usage
 
