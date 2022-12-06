@@ -1,5 +1,5 @@
 {
-  "name": "airtable-connect",
+  "name": "@theo-gillet/airtable-connect",
   "version": "1.0.0",
   "description": "A simple way to manage your Airtable connection",
   "main": "index.js",
@@ -10,14 +10,16 @@
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
-  "keywords": ["Airtable","Configuration", "JavaScript", "NodeJS"],
+  "keywords": [
+    "Airtable",
+    "Configuration",
+    "JavaScript",
+    "NodeJS"
+  ],
   "author": "Théo Gillet",
   "license": "ISC",
   "dependencies": {
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3"
-  },
-  "devDependencies": {
-    "jest": "^29.3.1"
   }
 }
