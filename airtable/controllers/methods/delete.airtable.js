@@ -12,4 +12,4 @@ function deleteData(base, id, table, action = null){
       });
 }
 
-module.exports = deleteData
+export default deleteData

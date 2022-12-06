@@ -12,4 +12,4 @@ const read = (base, table, view, action = null ) => {
     })
 }
 
-module.exports = read
+export default read

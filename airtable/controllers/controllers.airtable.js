@@ -1,10 +1,10 @@
-const AirtableConfig = require("../config/config.airtable")
-const create = require("./methods/create.airtable");
-const deleteData = require("./methods/delete.airtable");
-const read = require('./methods/read.airtable');
-const update = require("./methods/update.airtable");
+import AirtableConfig from "../config/config.airtable.js";
+import create from "./methods/create.airtable.js";
+import deleteData from "./methods/delete.airtable.js";
+import read from "./methods/read.airtable.js";
+import update from "./methods/update.airtable.js";
 
-module.exports = class AirtableData{
+export default class AirtableData{
     constructor(table, view) {
         this.base = AirtableConfig.getBase();
         this.table = table

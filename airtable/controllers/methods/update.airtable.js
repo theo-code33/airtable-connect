@@ -17,4 +17,4 @@ function update(base ,datas, table, action = null){
       });
 }
 
-module.exports = update
+export default update

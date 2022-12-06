@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "@theo-gillet/airtable-connect",
   "version": "1.0.0",
   "description": "A simple way to manage your Airtable connection",

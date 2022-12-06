@@ -1,2 +1,2 @@
-const AirtableConnect = require('./airtable/airtableConnect')
-module.exports = AirtableConnect
+import AirtableConnect from './airtable/airtableConnect.js'
+export default AirtableConnect

@@ -24,4 +24,4 @@ function create(base, datas, table, action = null){
 
 }
 
-module.exports = create
+export default create
