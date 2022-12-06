@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "A simple way to manage your Airtable connection",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theo-code33/airtable-connect.git"
+  },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
