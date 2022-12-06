@@ -18,4 +18,4 @@ const AirtableConfig = (() => {
     }
 })()
 
-export default AirtableConfig 
+export default AirtableConfig

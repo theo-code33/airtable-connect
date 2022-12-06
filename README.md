@@ -28,16 +28,17 @@ REACT_APP_AIRTABLE_BASE_ID=
 - Connection to Airtable
 
     ```javascript
-    const airtableConnect = require('airtable-connect');
+    import airtableConnect from 'airtable-connect'
+
 
     // If project is using React, NodeJS or VanillaJS, you can use the following to load the environment variables
 
-    const { AirtableData } = airtableConnect
+    const { AirtableConfig, AirtableData } = airtableConnect
 
     const example = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
 
     // Else you can use the following to load the environment variables
-    airtableConnect.getBase('API Key', 'Base ID')
+    AirtableConfig.getBase('API Key', 'Base ID')
 
     const { AirtableData } = airtableConnect
 
