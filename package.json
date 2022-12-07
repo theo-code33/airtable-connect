@@ -9,9 +9,7 @@
     "url": "git+https://github.com/theo-code33/airtable-connect.git"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:watch": "jest --watch",
-    "test:init": "jest --init",
+    "test": "mocha",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
@@ -25,9 +23,10 @@
   "license": "ISC",
   "dependencies": {
     "airtable": "^0.11.6",
+    "chai": "^4.3.7",
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "jest": "^29.3.1"
+    "mocha": "^10.1.0"
   }
 }
