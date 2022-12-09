@@ -20,7 +20,6 @@ function create(base, datas, table, action = null){
           }
         });
       });
-
 }
 
 export default create

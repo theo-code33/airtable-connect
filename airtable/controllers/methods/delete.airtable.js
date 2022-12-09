@@ -8,7 +8,6 @@ function deleteData(base, id, table, action = null){
         if(action){
             action(deletedRecords)
         }
-        return deletedRecords
       });
 }
 
