@@ -12,7 +12,6 @@ function update(base ,datas, table, action = null){
           if(action){
             action(record)
           }
-          return record
         });
       });
 }
