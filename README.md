@@ -28,7 +28,7 @@ REACT_APP_AIRTABLE_BASE_ID=
 - Connection to Airtable
 
     ```javascript
-    import airtableConnect from 'airtable-connect'
+    import { airtableConnect } from 'airtable-connect'
 
 
     // If project is using React, NodeJS or VanillaJS, you can use the following to load the environment variables
@@ -38,7 +38,8 @@ REACT_APP_AIRTABLE_BASE_ID=
     const example = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
 
     // Else you can use the following to load the environment variables
-    AirtableConfig.getBase('API Key', 'Base ID')
+    const AirtableInit = new AirtableConfig()
+    AirtableInit.getBase('API Key', 'Base ID')
 
     const { AirtableData } = airtableConnect
 
@@ -133,7 +134,8 @@ REACT_APP_AIRTABLE_BASE_ID=
 
 ## Package Dependencies
 
-![Airtable](https://img.shields.io/badge/Airtable-18BFFF?style=for-the-badge&logo=Airtable&logoColor=white)
+[![Airtable](https://img.shields.io/badge/Airtable-18BFFF?style=for-the-badge&logo=Airtable&logoColor=white)](https://airtable.com/)
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 ## Credits
 
