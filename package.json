@@ -18,7 +18,7 @@
   "keywords": [
     "Airtable",
     "Configuration",
-    "JavaScript",
+    "TypeScript",
     "NodeJS"
   ],
   "author": "Théo Gillet",
@@ -26,5 +26,8 @@
   "dependencies": {
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
   }
 }
