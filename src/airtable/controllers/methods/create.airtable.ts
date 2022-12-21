@@ -1,4 +1,10 @@
-function create(base, datas, table, action = null){
+interface Datas {
+  fields: {
+      [key: string]: any
+  }
+}
+
+export function create(base : any, datas : Array<Datas>, table : String, action : any){
 
     const newDatas =[{
       fields: {
@@ -8,12 +14,12 @@ function create(base, datas, table, action = null){
 
     base(`${table}`).create(
         newDatas
-        , function(err, records) {
+        , function(err : any , records : any) {
         if (err) {
           console.error(err);
           return;
         }
-        records.forEach(function (record) {
+        records.forEach(function (record : any) {
           console.log(record.getId());
           if(action){
             action(record)
@@ -21,5 +27,3 @@ function create(base, datas, table, action = null){
         });
       });
 }
-
-export default create
