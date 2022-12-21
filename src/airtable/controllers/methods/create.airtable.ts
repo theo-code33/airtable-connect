@@ -4,7 +4,7 @@ interface Datas {
   }
 }
 
-export function create(base : any, datas : Array<Datas>, table : String, action : any){
+export function create(base : any, datas : Array<Datas>, table : string, action : any){
 
     const newDatas =[{
       fields: {

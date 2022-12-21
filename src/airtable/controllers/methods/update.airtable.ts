@@ -4,7 +4,7 @@ interface Datas {
   }
 }
 
-export function update(base : any ,datas : Array<Datas>, table : String, action : any){
+export function update(base : any ,datas : Array<Datas>, table : string, action : any){
     const newDatas =[datas] 
 
     base(`${table}`).update(

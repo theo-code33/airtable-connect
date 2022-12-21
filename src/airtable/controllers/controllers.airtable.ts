@@ -14,10 +14,10 @@ const AirtableConfigInstance : any = new AirtableConfig()
 
 export class AirtableData{
     base : any;
-    table : String;
-    view : String;
+    table : string;
+    view : string;
 
-    constructor(table : String, view : String) {
+    constructor(table : string, view : string | undefined) {
         this.base = AirtableConfigInstance.getBase();
         this.table = table
         this.view = view || 'Grid view'
@@ -31,7 +31,7 @@ export class AirtableData{
     async update(datas : Array<Datas>, action : any){
         return await update(this.base ,datas, this.table, action)
     }
-    async delete(id : String, action : any){
+    async delete(id : string, action : any){
         return await deleteData(this.base, id, this.table, action)
     }
 }

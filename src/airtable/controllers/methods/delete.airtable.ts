@@ -1,4 +1,4 @@
-export function deleteData(base : any, id : String, table : String, action : any){
+export function deleteData(base : any, id : string, table : string, action : any){
 
     base(`${table}`).destroy([`${id}`], function(err : any, deletedRecords : any) {
         if (err) {

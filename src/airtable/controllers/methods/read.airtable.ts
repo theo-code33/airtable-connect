@@ -1,4 +1,4 @@
-export const read = (base : any, table : String, view : String, action : any ) => {
+export const read = (base : any, table : string, view : string, action : any ) => {
 
     base(`${table}`).select({
         view: view
