@@ -24,6 +24,7 @@
   "author": "Théo Gillet",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^18.11.17",
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3"
   },
