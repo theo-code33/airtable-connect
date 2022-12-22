@@ -8,7 +8,7 @@ export function create(base : any, datas : Array<Datas>, table : string, action 
 
     base(`${table}`).create(
         newDatas
-        , function(err : any , records : any) {
+        , function(err : any , records : any[]) {
         if (err) {
           console.error(err);
           return;

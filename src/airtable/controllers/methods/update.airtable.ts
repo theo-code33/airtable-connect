@@ -3,7 +3,7 @@ export function update(base : any ,datas : Array<Datas>, table : string, action 
 
     base(`${table}`).update(
       newDatas
-        , function(err : any, records : any) {
+        , function(err : any, records : any[]) {
         if (err) {
           console.error(err);
           return;
