@@ -4,12 +4,6 @@ import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
 import { update } from "./methods/update.airtable.js";
 
-interface Datas {
-    fields: {
-        [key: string]: any
-    }
-}
-
 const AirtableConfigInstance : any = new AirtableConfig()
 
 export class AirtableData{

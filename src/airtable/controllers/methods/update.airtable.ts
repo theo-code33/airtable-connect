@@ -1,9 +1,3 @@
-interface Datas {
-  fields: {
-      [key: string]: any
-  }
-}
-
 export function update(base : any ,datas : Array<Datas>, table : string, action : any){
     const newDatas =[datas] 
 
