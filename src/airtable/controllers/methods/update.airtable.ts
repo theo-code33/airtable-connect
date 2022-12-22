@@ -1,7 +1,13 @@
-export function update(base : any ,datas : Array<Datas>, table : string, action : any){
-    const newDatas =[datas] 
+interface Arguments {
+    base: any;
+    datas: Array<Datas>;
+    table: string;
+    action: any;
+}
+export function update(arg : Arguments){
+    const newDatas =[arg.datas] 
 
-    base(`${table}`).update(
+    arg.base(`${arg.table}`).update(
       newDatas
         , function(err : any, records : any[]) {
         if (err) {
@@ -9,8 +15,8 @@ export function update(base : any ,datas : Array<Datas>, table : string, action 
           return;
         }
         records.forEach(function (record : any) {
-          if(action){
-            action(record)
+          if(arg.action){
+            arg.action(record)
           }
         });
       });

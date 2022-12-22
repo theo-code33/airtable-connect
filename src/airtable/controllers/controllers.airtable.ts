@@ -23,7 +23,7 @@ export class AirtableData{
         return await create(this.base, datas, this.table, action)
     }
     async update(datas : Array<Datas>, action : any){
-        return await update(this.base ,datas, this.table, action)
+        return await update({base: this.base, datas: datas, table: this.table, action: action})
     }
     async delete(id : string, action : any){
         return await deleteData(this.base, id, this.table, action)
