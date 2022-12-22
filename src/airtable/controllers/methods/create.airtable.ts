@@ -14,7 +14,6 @@ export function create(base : any, datas : Array<Datas>, table : string, action 
           return;
         }
         records.forEach(function (record : any) {
-          console.log(record.getId());
           if(action){
             action(record)
           }
