@@ -4,7 +4,10 @@ import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
 import { update } from "./methods/update.airtable.js";
 
-const AirtableConfigInstance : any = new AirtableConfig()
+interface ArgumentsCreateUpdate {
+    datas: Array<Datas>;
+    action: Function;
+}
 
 export class AirtableData{
     base : any;
@@ -12,20 +15,20 @@ export class AirtableData{
     view : string;
 
     constructor(table : string, view : string | undefined) {
-        this.base = AirtableConfigInstance.getBase();
+        this.base = AirtableConfig.getBase();
         this.table = table
         this.view = view || 'Grid view'
     }
-    async read(action : any){
-        return await read(this.base, this.table, this.view, action)
+    async read(action: Function) : Promise<unknown> {
+        return await read({base: this.base, table: this.table, view: this.view, action: action})
     }
-    async create(datas : Array<Datas>, action : any){
-        return await create(this.base, datas, this.table, action)
+    async create(arg : ArgumentsCreateUpdate){
+        return await create({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
     }
-    async update(datas : Array<Datas>, action : any){
-        return await update({base: this.base, datas: datas, table: this.table, action: action})
+    async update(arg : ArgumentsCreateUpdate){
+        return await update({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
     }
-    async delete(id : string, action : any){
-        return await deleteData(this.base, id, this.table, action)
+    async delete(id : string, action : Function){
+        return await deleteData({base: this.base, id: id, table: this.table, action: action})
     }
 }

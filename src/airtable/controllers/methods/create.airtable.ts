@@ -1,21 +1,28 @@
-export function create(base : any, datas : Array<Datas>, table : string, action : any){
+interface Arguments {
+  base: any;
+  datas: Array<Datas>;
+  table: string;
+  action: Function;
+}
+
+export function create(arg : Arguments) : (void | any){
 
     const newDatas =[{
       fields: {
-        ...datas
+        ...arg.datas
       }
     }] 
 
-    base(`${table}`).create(
+    arg.base(`${arg.table}`).create(
         newDatas
-        , function(err : any , records : any[]) {
+        , function(err : any , records : object[]) {
         if (err) {
           console.error(err);
           return;
         }
-        records.forEach(function (record : any) {
-          if(action){
-            action(record)
+        records.forEach(function (record : object) {
+          if(arg.action){
+            arg.action(record)
           }
         });
       });
