@@ -17,6 +17,6 @@ declare global {
         readonly VITE_AIRTABLE_BASE_ID? : string;
     }
     interface ImportMeta {
-        readonly env : ImportMetaEnv;
+        readonly env? : ImportMetaEnv;
     }
 }
