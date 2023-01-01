@@ -1,5 +1,8 @@
 export {};
 
+declare module 'airtable'
+declare module 'dotenv'
+
 declare global {
     interface Datas {
         fields: {

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "A simple way to manage your Airtable connection",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theo-code33/airtable-connect.git"
