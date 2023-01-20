@@ -1,9 +1,11 @@
 {
   "type": "module",
-  "name": "@theo-gillet/airtable-connect",
+  "name": "@theo-dev/airtable-connect",
   "version": "1.0.0",
   "description": "A simple way to manage your Airtable connection",
   "main": "index.js",
+  "author": "theo-dev",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theo-code33/airtable-connect.git"
@@ -21,8 +23,6 @@
     "JavaScript",
     "NodeJS"
   ],
-  "author": "Théo Gillet",
-  "license": "ISC",
   "dependencies": {
     "airtable": "^0.11.6",
     "dotenv": "^16.0.3"
