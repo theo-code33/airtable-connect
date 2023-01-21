@@ -1,20 +1,37 @@
 {
   "type": "module",
-  "name": "@theo-gillet/airtable-connect",
   "version": "1.0.0",
+  "name": "@theo-dev/airtable-connect",
+  "author": "Théo Gillet",
+  "license": "ISC",
   "description": "A simple way to manage your Airtable connection",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theo-code33/airtable-connect.git"
   },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:init": "jest --init",
-    "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
   },
   "keywords": [
     "Airtable",
@@ -22,8 +39,6 @@
     "TypeScript",
     "NodeJS"
   ],
-  "author": "Théo Gillet",
-  "license": "ISC",
   "dependencies": {
     "@types/node": "^18.11.17",
     "airtable": "^0.11.6",
