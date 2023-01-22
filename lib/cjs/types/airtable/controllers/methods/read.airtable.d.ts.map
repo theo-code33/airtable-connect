@@ -1,0 +1,1 @@
+{"version":3,"file":"read.airtable.d.ts","sourceRoot":"","sources":["../../../../../../src/airtable/controllers/methods/read.airtable.ts"],"names":[],"mappings":"AAAA,UAAU,SAAS;IACf,IAAI,EAAE,GAAG,CAAC;IACV,KAAK,EAAE,MAAM,CAAC;IACd,IAAI,EAAE,MAAM,CAAC;IACb,MAAM,EAAE,QAAQ,CAAC;CACpB;AACD,eAAO,MAAM,IAAI,QAAU,SAAS,SAYnC,CAAA"}
