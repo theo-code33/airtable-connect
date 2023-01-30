@@ -40,7 +40,8 @@
     ]
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "@theo-dev:registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "Airtable",
