@@ -29,9 +29,9 @@ REACT_APP_AIRTABLE_BASE_ID=
 - Connection to Airtable
 
     ```javascript
-    import { airtableConnect } from '@theo-dev/airtable-connect'
+    import { AirtableConnect } from '@theo-dev/airtable-connect'
 
-    const { AirtableConfig, AirtableData } = airtableConnect
+    const { AirtableConfig, AirtableData } = AirtableConnect
 
     AirtableConfig.getBase('API Key', 'Base ID')
 
@@ -58,23 +58,30 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     // Create a record
 
-    example.create({ 'Field Name': 'Field Value' }) // return dataset
-    ````
+    example.create({
+        datas: { 'Field Name': 'Field Value' }
+    }) // return nothing just create the record
+    ```
 
     You can also add ```function``` in parameter of create function to get the data like this:
 
     ```javascript
     let newRecord = []
 
-    example.create({ 'Field Name': 'Field Value' }, (record) => {
-        newRecord = record
-    })
+    example.create({
+        datas: { 'Field Name': 'Field Value' }, 
+        action: (record) => {
+            newRecord = record
+        }
+    }) // return nothing just create the record and add the new record in newRecord variable
     ```
 - Updating Data
 
     ```javascript
     // Update a record
-    example.update({'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}) // return nothing just update the record
+    example.update({
+        datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}
+    }) // return nothing just update the record
 
     // Update multiple records
 
@@ -89,7 +96,9 @@ REACT_APP_AIRTABLE_BASE_ID=
         }
     ]
 
-    example.update(records) // return nothing just update records
+    example.update({
+        datas: records
+    }) // return nothing just update records
     ```
 
     You can also add ```function``` in parameter of update function to get the data like this:
@@ -97,8 +106,11 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let updatedRecord = []
 
-    example.update({'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}, (record) => {
-        updatedRecord = record
+    example.update({
+        datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}},
+        action: (record) => {
+            updatedRecord = record
+        }
     })
     ```
 
