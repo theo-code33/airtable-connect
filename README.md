@@ -29,15 +29,23 @@ REACT_APP_AIRTABLE_BASE_ID=
 - Connection to Airtable
 
     ```javascript
+    // If you create a .env file, you can use the following code to connect to Airtable
+    import { AirtableConnect } from '@theo-dev/airtable-connect'
+
+    const { AirtableData } = AirtableConnect
+
+    const tableInstance = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
+    ```
+
+    ```javascript
+    // If you don't create a .env file, you can use the following code to connect to Airtable
     import { AirtableConnect } from '@theo-dev/airtable-connect'
 
     const { AirtableConfig, AirtableData } = AirtableConnect
 
     AirtableConfig.getBase('API Key', 'Base ID')
 
-    const { AirtableData } = airtableConnect
-
-    const example = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
+    const tableInstance = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
 
     ```
 
@@ -48,7 +56,7 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let data = []
 
-    example.read((dataset) => {
+    tableInstance.read((dataset) => {
         data = dataset
     })
     ```
@@ -58,7 +66,7 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     // Create a record
 
-    example.create({
+    tableInstance.create({
         datas: { 'Field Name': 'Field Value' }
     }) // return nothing just create the record
     ```
@@ -68,7 +76,7 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let newRecord = []
 
-    example.create({
+    tableInstance.create({
         datas: { 'Field Name': 'Field Value' }, 
         action: (record) => {
             newRecord = record
@@ -79,7 +87,7 @@ REACT_APP_AIRTABLE_BASE_ID=
 
     ```javascript
     // Update a record
-    example.update({
+    tableInstance.update({
         datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}
     }) // return nothing just update the record
 
@@ -96,7 +104,7 @@ REACT_APP_AIRTABLE_BASE_ID=
         }
     ]
 
-    example.update({
+    tableInstance.update({
         datas: records
     }) // return nothing just update records
     ```
@@ -106,7 +114,7 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let updatedRecord = []
 
-    example.update({
+    tableInstance.update({
         datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}},
         action: (record) => {
             updatedRecord = record
@@ -122,7 +130,7 @@ REACT_APP_AIRTABLE_BASE_ID=
 
     let deletedRecord = []
 
-    example.delete('ExampleID', (record) => {
+    tableInstance.delete('ExampleID', (record) => {
         deletedRecord = record
     })
     ```
