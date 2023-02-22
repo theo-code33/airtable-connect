@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "name": "@theo-dev/airtable-connect",
   "author": "Théo Gillet",
   "license": "ISC",
@@ -38,9 +38,6 @@
     "branches": [
       "main"
     ]
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "keywords": [
     "Airtable",

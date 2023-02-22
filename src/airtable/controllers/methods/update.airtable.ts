@@ -11,7 +11,7 @@ interface Arguments {
     action: Function;
 }
 export function update(arg : Arguments) : (void | any){
-    const newDatas =[arg.datas] 
+    const newDatas = [arg.datas] 
 
     arg.base(`${arg.table}`).update(
       newDatas

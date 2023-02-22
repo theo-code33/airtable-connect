@@ -9,10 +9,11 @@ This package is used to configure the Airtable integration for your project.
 npm install --save @theo-dev/airtable-connect
 ```
 
-<!-- Create a ```.env``` file in the root of your project and add the following:
+Create a ```.env``` file in the root of your project and add the following:
 
 ```bash
 # If you use NodeJS or VanillaJS, you can add the following to your .env file
+# Install dotenv package to use .env file
 AIRTABLE_API_KEY=
 AIRTABLE_BASE_ID=
 
@@ -20,7 +21,7 @@ AIRTABLE_BASE_ID=
 REACT_APP_AIRTABLE_API_KEY=
 REACT_APP_AIRTABLE_BASE_ID=
 
-``` -->
+```
 
 &nbsp;
 ### Usage
@@ -28,15 +29,23 @@ REACT_APP_AIRTABLE_BASE_ID=
 - Connection to Airtable
 
     ```javascript
-    import { airtableConnect } from '@theo-dev/airtable-connect'
+    // If you create a .env file, you can use the following code to connect to Airtable
+    import { AirtableConnect } from '@theo-dev/airtable-connect'
 
-    const { AirtableConfig, AirtableData } = airtableConnect
+    const { AirtableData } = AirtableConnect
+
+    const tableInstance = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
+    ```
+
+    ```javascript
+    // If you don't create a .env file, you can use the following code to connect to Airtable
+    import { AirtableConnect } from '@theo-dev/airtable-connect'
+
+    const { AirtableConfig, AirtableData } = AirtableConnect
 
     AirtableConfig.getBase('API Key', 'Base ID')
 
-    const { AirtableData } = airtableConnect
-
-    const example = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
+    const tableInstance = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
 
     ```
 
@@ -47,7 +56,7 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let data = []
 
-    example.read((dataset) => {
+    tableInstance.read((dataset) => {
         data = dataset
     })
     ```
@@ -57,23 +66,30 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     // Create a record
 
-    example.create({ 'Field Name': 'Field Value' }) // return dataset
-    ````
+    tableInstance.create({
+        datas: { 'Field Name': 'Field Value' }
+    }) // return nothing just create the record
+    ```
 
     You can also add ```function``` in parameter of create function to get the data like this:
 
     ```javascript
     let newRecord = []
 
-    example.create({ 'Field Name': 'Field Value' }, (record) => {
-        newRecord = record
-    })
+    tableInstance.create({
+        datas: { 'Field Name': 'Field Value' }, 
+        action: (record) => {
+            newRecord = record
+        }
+    }) // return nothing just create the record and add the new record in newRecord variable
     ```
 - Updating Data
 
     ```javascript
     // Update a record
-    example.update({'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}) // return nothing just update the record
+    tableInstance.update({
+        datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}
+    }) // return nothing just update the record
 
     // Update multiple records
 
@@ -88,7 +104,9 @@ REACT_APP_AIRTABLE_BASE_ID=
         }
     ]
 
-    example.update(records) // return nothing just update records
+    tableInstance.update({
+        datas: records
+    }) // return nothing just update records
     ```
 
     You can also add ```function``` in parameter of update function to get the data like this:
@@ -96,8 +114,11 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let updatedRecord = []
 
-    example.update({'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}}, (record) => {
-        updatedRecord = record
+    tableInstance.update({
+        datas: {'id': 'ExampleID', 'fields': {'FieldName': 'Field Value'}},
+        action: (record) => {
+            updatedRecord = record
+        }
     })
     ```
 
@@ -109,7 +130,7 @@ REACT_APP_AIRTABLE_BASE_ID=
 
     let deletedRecord = []
 
-    example.delete('ExampleID', (record) => {
+    tableInstance.delete('ExampleID', (record) => {
         deletedRecord = record
     })
     ```
