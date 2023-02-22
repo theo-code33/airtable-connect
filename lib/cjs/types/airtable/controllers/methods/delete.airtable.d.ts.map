@@ -1,1 +1,0 @@
-{"version":3,"file":"delete.airtable.d.ts","sourceRoot":"","sources":["../../../../../../src/airtable/controllers/methods/delete.airtable.ts"],"names":[],"mappings":"AAAA,UAAU,SAAS;IACjB,IAAI,EAAE,GAAG,CAAC;IACV,EAAE,EAAE,MAAM,CAAC;IACX,KAAK,EAAE,MAAM,CAAC;IACd,MAAM,EAAE,QAAQ,CAAC;CAClB;AACD,wBAAgB,UAAU,CAAC,GAAG,EAAG,SAAS,GAAI,CAAC,IAAI,GAAG,GAAG,CAAC,CAWzD"}
