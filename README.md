@@ -14,11 +14,11 @@ Create a ```.env``` file in the root of your project and add the following:
 ```bash
 # If you use NodeJS or VanillaJS, you can add the following to your .env file
 # Install dotenv package to use .env file
-AIRTABLE_API_KEY=
+AIRTABLE_PERSONNAL_TOKEN=
 AIRTABLE_BASE_ID=
 
 # If you use React, you can add the following to your .env file
-REACT_APP_AIRTABLE_API_KEY=
+REACT_APP_AIRTABLE_PERSONNAL_TOKEN=
 REACT_APP_AIRTABLE_BASE_ID=
 
 ```
@@ -43,7 +43,7 @@ REACT_APP_AIRTABLE_BASE_ID=
 
     const { AirtableConfig, AirtableData } = AirtableConnect
 
-    AirtableConfig.getBase('API Key', 'Base ID')
+    AirtableConfig.getBase('Personnal Token', 'Base ID')
 
     const tableInstance = new AirtableData('Table Name', 'View Name (optional if you want to use the default view)')
 
