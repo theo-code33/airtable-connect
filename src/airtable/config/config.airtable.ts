@@ -4,7 +4,7 @@ const AirtableConfig = (function() : {getBase: Function} {
     let base : unknown | null = null;
 
     function createBase(apiKeyParams? : string, baseIdParams?: string) : void {
-        const apiKey = process.env.AIRTABLE_API_KEY || process.env.REACT_APP_AIRTABLE_API_KEY || apiKeyParams
+        const apiKey = process.env.AIRTABLE_PERSONNAL_TOKEN || process.env.REACT_APP_AIRTABLE_PERSONNAL_TOKEN || apiKeyParams
         const baseID = process.env.AIRTABLE_BASE_ID || process.env.REACT_APP_AIRTABLE_BASE_ID || baseIdParams
         base = new Airtable({apiKey: apiKey}).base(baseID ? baseID : '')
     }
