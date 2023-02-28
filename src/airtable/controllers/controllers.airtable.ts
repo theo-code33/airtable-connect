@@ -12,7 +12,17 @@ interface Datas {
 
 interface ArgumentsCreateUpdate {
     datas: Array<Datas>;
-    action: Function;
+    action?: Function;
+}
+
+interface ArgumentsRead {
+    action?: Function;
+    completedOnly?: boolean;
+}
+
+interface ArgumentsDelete {
+    id: string;
+    action?: Function;
 }
 
 export class AirtableData{
@@ -25,8 +35,8 @@ export class AirtableData{
         this.table = table
         this.view = view || 'Grid view'
     }
-    async read(action: Function) : Promise<unknown> {
-        return await read({base: this.base, table: this.table, view: this.view, action: action})
+    async read(arg: ArgumentsRead) : Promise<unknown> {
+        return await read({base: this.base, table: this.table, view: this.view, action: arg.action, completedOnly: arg.completedOnly})
     }
     async create(arg : ArgumentsCreateUpdate){
         return await create({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
@@ -34,7 +44,7 @@ export class AirtableData{
     async update(arg : ArgumentsCreateUpdate){
         return await update({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
     }
-    async delete(id : string, action : Function){
-        return await deleteData({base: this.base, id: id, table: this.table, action: action})
+    async delete(arg: ArgumentsDelete){
+        return await deleteData({base: this.base, id: arg.id, table: this.table, action: arg.action})
     }
 }
