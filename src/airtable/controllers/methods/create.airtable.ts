@@ -8,7 +8,7 @@ interface Arguments {
   base: any;
   datas: Array<Datas>;
   table: string;
-  action: Function;
+  action?: Function;
 }
 
 export function create(arg : Arguments) : (void | any){

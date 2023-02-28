@@ -2,7 +2,7 @@ interface Arguments {
   base: any;
   id: string;
   table: string;
-  action: Function;
+  action?: Function;
 }
 export function deleteData(arg : Arguments) : (void | any){
 

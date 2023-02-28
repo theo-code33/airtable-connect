@@ -1,6 +1,9 @@
 # Airtable Configuration
 This package is used to configure the Airtable integration for your project.
 
+## New Features!
+In this version, you can now use the Personnal Access Token to connect your project to airtable (see the official documentation for Personnal Access Token https://airtable.com/developers/web/guides/personal-access-tokens). We can also retrieve only the completed datas with the ```completedOnly``` argument. Be careful, now we use object of arguments instead of multiple arguments (check [Usage section](#usage)).
+
 ## Getting Started
 
 ### Installation
@@ -56,8 +59,11 @@ REACT_APP_AIRTABLE_BASE_ID=
     ```javascript
     let data = []
 
-    tableInstance.read((dataset) => {
-        data = dataset
+    tableInstance.read({
+        action: (dataset) => {
+            data = dataset
+        },
+        completedOnly: true // optional - if you want to get only completed records
     })
     ```
 
@@ -130,8 +136,11 @@ REACT_APP_AIRTABLE_BASE_ID=
 
     let deletedRecord = []
 
-    tableInstance.delete('ExampleID', (record) => {
-        deletedRecord = record
+    tableInstance.delete({
+        id: 'ExampleID',
+        action: (record) => {
+            deletedRecord = record
+        }
     })
     ```
 
