@@ -2,7 +2,7 @@
 This package is used to configure the Airtable integration for your project.
 
 ## New Features!
-In this version, you can now use the Personnal Access Token to connect your project to airtable (see the official documentation for Personnal Access Token https://airtable.com/developers/web/guides/personal-access-tokens). We can also retrieve only the completed datas with the ```completedOnly``` argument. Be careful, now we use object of arguments instead of multiple arguments (check [Usage section](#usage)).
+In this version, you can now use Airtable-connect packag in your Vite App. However, you can't use it in your nodeJS app. The feature will be added in a next version. You can also find some help of using this package in VSCode when you hover methods.
 
 ## Getting Started
 
@@ -15,15 +15,13 @@ npm install --save @theo-dev/airtable-connect
 Create a ```.env``` file in the root of your project and add the following:
 
 ```bash
-# If you use NodeJS or VanillaJS, you can add the following to your .env file
-# Install dotenv package to use .env file
-AIRTABLE_PERSONNAL_TOKEN=
-AIRTABLE_BASE_ID=
-
 # If you use React, you can add the following to your .env file
 REACT_APP_AIRTABLE_PERSONNAL_TOKEN=
 REACT_APP_AIRTABLE_BASE_ID=
 
+# If you use Vite, you can add the following to your .env file
+VITE_AIRTABLE_PERSONNAL_TOKEN=
+VITE_AIRTABLE_BASE_ID=
 ```
 
 &nbsp;
