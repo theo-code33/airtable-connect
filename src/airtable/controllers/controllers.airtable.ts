@@ -3,9 +3,9 @@ import { create } from "./methods/create.airtable.js";
 import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
 import { update } from "./methods/update.airtable.js";
-
+/**
 * @name AirtableData
-    fields: {
+* @description
 * This class is used to Create, Read, Update and Delete datas in Airtable Table
 * @param table string
 * @param view string
@@ -17,21 +17,88 @@ export class AirtableData{
     table : string;
     view : string;
 
-    constructor(table : string, view : string | undefined) {
+    constructor(table : string, view?: string) {
         this.base = AirtableConfig.getBase();
         this.table = table
         this.view = view || 'Grid view'
     }
-    async read(arg: ArgumentsRead) : Promise<unknown> {
+
+    /**
+    * @name read
+    * @description
+    * This method is used to read datas in Airtable Table
+    * @param arg ArgumentsClientRead
+    * @example
+    * tableInstance.read({
+    *   action: (datas) => {
+    *       console.log(datas)
+    *   },
+    *   completedOnly: true
+    * })
+    */
+    async read(arg: ArgumentsClientRead) : Promise<unknown> {
         return await read({base: this.base, table: this.table, view: this.view, action: arg.action, completedOnly: arg.completedOnly})
     }
-    async create(arg : ArgumentsCreateUpdate){
+
+    /**
+    * @name create
+    * @description
+    * This method is used to create datas in Airtable Table
+    * @param arg ArgumentsClientCreateUpdate
+    * @example
+    * tableInstance.create({
+    *   datas: [{
+    *        fields: {
+    *            'Name': 'John Doe',
+    *            'Age': 25
+    *       }
+    *   }],
+    *   action: (datas) => {
+    *       console.log(datas)
+    *   }
+    * })
+    */
+    async create(arg : ArgumentsClientCreateUpdate){
         return await create({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
     }
-    async update(arg : ArgumentsCreateUpdate){
+
+    /**
+    * @name update
+    * @description
+    * This method is used to create datas in Airtable Table
+    * @param arg ArgumentsClientCreateUpdate
+    * @example
+    * tableInstance.update({
+    *   datas: [{
+    *       id: 'RECORD_ID',
+    *       fields: {
+    *           'Name': 'John Doe',
+    *           'Age': 25
+    *       }
+    *   }],
+    *   action: (datas) => {
+    *       console.log(datas)
+    *   }
+    * })
+    */
+    async update(arg : ArgumentsClientCreateUpdate){
         return await update({base: this.base, datas: arg.datas, table: this.table, action: arg.action})
     }
-    async delete(arg: ArgumentsDelete){
+
+    /**
+     * @name delete
+     * @description
+     * This method is used to delete datas in Airtable Table
+     * @param arg ArgumentsClientDelete
+     * @example
+     * tableInstance.delete({
+     *  id: 'RECORD_ID',
+     *  action: (datas) => {
+     *      console.log(datas)
+     *  }
+     * })
+     */
+    async delete(arg: ArgumentsClientDelete){
         return await deleteData({base: this.base, id: arg.id, table: this.table, action: arg.action})
     }
 }
