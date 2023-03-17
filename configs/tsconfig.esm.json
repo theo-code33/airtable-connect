@@ -5,6 +5,7 @@
       "target": "ES2022",
       "module": "ESNext",
       "outDir": "../lib/esm",
-      "declarationDir": "../lib/esm/types"
+      "declarationDir": "../lib/esm/types",
+      "types": ["node"]
     }
 }
