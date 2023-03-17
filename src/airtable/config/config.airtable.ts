@@ -1,7 +1,4 @@
 import Airtable from 'airtable'
-if(require.main === module) {
-    require('dotenv').config()
-}
 /**
 * @name AirtableConfig
 * @description
