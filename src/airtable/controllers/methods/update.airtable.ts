@@ -1,16 +1,4 @@
-interface Datas {
-  fields: {
-      [key: string]: any
-  }
-}
-
-interface Arguments {
-    base: any;
-    datas: Array<Datas>;
-    table: string;
-    action?: Function;
-}
-export function update(arg : Arguments) : (void | any){
+export function update(arg : ArgumentsCreateUpdate) : (void | any){
     const newDatas = [arg.datas] 
 
     arg.base(`${arg.table}`).update(

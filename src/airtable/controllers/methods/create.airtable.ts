@@ -1,24 +1,9 @@
-interface Datas {
-  fields: {
-      [key: string]: any
-  }
-}
-
-interface Arguments {
-  base: any;
-  datas: Array<Datas>;
-  table: string;
-  action?: Function;
-}
-
-export function create(arg : Arguments) : (void | any){
-
+export function create(arg : ArgumentsCreateUpdate) : (void | any){
     const newDatas =[{
       fields: {
         ...arg.datas
       }
     }] 
-
     arg.base(`${arg.table}`).create(
         newDatas
         , function(err : any , records : object[]) {

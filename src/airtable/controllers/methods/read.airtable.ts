@@ -1,11 +1,4 @@
-interface Arguments {
-    base: any;
-    table: string;
-    view: string;
-    action?: Function;
-    completedOnly?: boolean;
-}
-export const read = (arg : Arguments) => {
+export const read = (arg : ArgumentsRead) => {
 
     arg.base(`${arg.table}`).select({
         view: arg.view

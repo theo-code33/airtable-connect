@@ -4,27 +4,14 @@ import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
 import { update } from "./methods/update.airtable.js";
 
-interface Datas {
+* @name AirtableData
     fields: {
-        [key: string]: any
-    }
-}
-
-interface ArgumentsCreateUpdate {
-    datas: Array<Datas>;
-    action?: Function;
-}
-
-interface ArgumentsRead {
-    action?: Function;
-    completedOnly?: boolean;
-}
-
-interface ArgumentsDelete {
-    id: string;
-    action?: Function;
-}
-
+* This class is used to Create, Read, Update and Delete datas in Airtable Table
+* @param table string
+* @param view string
+* @example
+* const tableInstance = new AirtableData('TABLE_NAME', 'VIEW_NAME if you want to use another view than Grid view')
+*/
 export class AirtableData{
     base : any;
     table : string;
