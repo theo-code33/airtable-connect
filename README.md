@@ -2,7 +2,7 @@
 This package is used to configure the Airtable integration for your project.
 
 ## New Features!
-In this version, you can now use Airtable-connect packag in your Vite App. However, you can't use it in your nodeJS app. The feature will be added in a next version. You can also find some help of using this package in VSCode when you hover methods.
+In this version, you can now use Airtable-connect package in your Vite App. However, you can't use it in your nodeJS app. The feature will be added in a next version. You can also find some help of using this package in VSCode when you hover methods.
 
 ## Getting Started
 
