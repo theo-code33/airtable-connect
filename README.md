@@ -2,7 +2,7 @@
 This package is used to configure the Airtable integration for your project.
 
 ## New Features!
-In this version, you can now use Airtable-connect package in your Vite App. However, you can't use it in your nodeJS app. The feature will be added in a next version. You can also find some help of using this package in VSCode when you hover methods.
+In this version, you can now use readByID function to get a record by ID. I work on a new version to add more features. If you have any suggestions, please contact me.
 
 ## Getting Started
 
@@ -50,20 +50,35 @@ VITE_AIRTABLE_BASE_ID=
 
     ```
 
-- Retrieving Data
+- Retrieving Datas
 
-    Add ```function``` in parameter of read function to get the data like this:
+    Add ```function``` in parameter of read function to get datas like this:
 
     ```javascript
-    let data = []
+    let datas = []
 
     tableInstance.read({
         action: (dataset) => {
-            data = dataset
+            datas = dataset
         },
         completedOnly: true // optional - if you want to get only completed records
     })
     ```
+- Retrieving data by ID
+
+    Add ```function``` in parameter of readByID function to get data like this:
+
+    ```javascript
+    let data = null
+
+    tableInstance.readByID({
+        id: 'RECORD_ID',
+        action: (dataset) => {
+            data = dataset
+        }
+    })
+    ```
+
 
 - Creating Data
 

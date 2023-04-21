@@ -55,6 +55,13 @@ declare global {
         completedOnly?: boolean;
     }
 
+    interface ArgumentsReadByID {
+        base: any;
+        table: string;
+        id: string;
+        action?: Function;
+    }
+
     /**
      * @name ArgumentsCreateUpdate
      * @description
@@ -112,13 +119,13 @@ declare global {
     }
 
     /**
-     * @name ArgumentsClientDelete
+     * @name ArgumentsClientDeleteReadByID
      * @description
      * This interface is used to define arguments for delete method in client method
      * @param id string
      * @param action Function
      */
-    interface ArgumentsClientDelete {
+    interface ArgumentsClientDeleteReadByID {
         id: string;
         action?: Function;
     }

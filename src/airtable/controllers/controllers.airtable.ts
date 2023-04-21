@@ -2,6 +2,7 @@ import { AirtableConfig } from "../config/config.airtable.js";
 import { create } from "./methods/create.airtable.js";
 import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
+import { readByID } from "./methods/readById.airtable.js";
 import { update } from "./methods/update.airtable.js";
 /**
 * @name AirtableData
@@ -38,6 +39,23 @@ export class AirtableData{
     */
     async read(arg: ArgumentsClientRead) : Promise<unknown> {
         return await read({base: this.base, table: this.table, view: this.view, action: arg.action, completedOnly: arg.completedOnly})
+    }
+
+    /**
+    * @name readByID
+    * @description
+    * This method is used to read data by ID in Airtable Table
+    * @param arg ArgumentsClientDeleteReadByID
+    * @example
+    * tableInstance.readByID({
+    *   id: 'RECORD_ID',
+    *   action: (data) => {
+    *       console.log(data)
+    *   }
+    * })
+    */
+    async readByID(arg: ArgumentsClientDeleteReadByID) : Promise<unknown> {
+        return await readByID({base: this.base, table: this.table, id: arg.id, action: arg.action})
     }
 
     /**
@@ -98,7 +116,7 @@ export class AirtableData{
      *  }
      * })
      */
-    async delete(arg: ArgumentsClientDelete){
+    async delete(arg: ArgumentsClientDeleteReadByID){
         return await deleteData({base: this.base, id: arg.id, table: this.table, action: arg.action})
     }
 }
