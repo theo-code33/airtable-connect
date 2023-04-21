@@ -50,20 +50,35 @@ VITE_AIRTABLE_BASE_ID=
 
     ```
 
-- Retrieving Data
+- Retrieving Datas
 
-    Add ```function``` in parameter of read function to get the data like this:
+    Add ```function``` in parameter of read function to get datas like this:
 
     ```javascript
-    let data = []
+    let datas = []
 
     tableInstance.read({
         action: (dataset) => {
-            data = dataset
+            datas = dataset
         },
         completedOnly: true // optional - if you want to get only completed records
     })
     ```
+- Retrieving data by ID
+
+    Add ```function``` in parameter of readByID function to get data like this:
+
+    ```javascript
+    let data = null
+
+    tableInstance.readByID({
+        id: 'RECORD_ID',
+        action: (dataset) => {
+            data = dataset
+        }
+    })
+    ```
+
 
 - Creating Data
 
