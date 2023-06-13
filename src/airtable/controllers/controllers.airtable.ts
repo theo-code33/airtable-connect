@@ -1,4 +1,4 @@
-import { AirtableConfig } from "../config/config.airtable.js";
+import AirtableConfig from "../config/config.airtable.js";
 import { create } from "./methods/create.airtable.js";
 import { deleteData } from "./methods/delete.airtable.js";
 import { read } from "./methods/read.airtable.js";
