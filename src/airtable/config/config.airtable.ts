@@ -34,4 +34,4 @@ const AirtableConfig = (function() : {getBase: Function} {
     }
 })()
 
-export { AirtableConfig }
+export default AirtableConfig
