@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install jq -y
       - name: Release upgrade
         run: |
-          VERSION=$(echo ${{ steps.vars.outputs.tag }} | cut -c 2-) && \
+          VERSION=$(echo $GITHUB_REF_NAME | cut -c 2-) && \
           jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json
       - name: Show package.json
         run: cat package.json
@@ -29,7 +29,7 @@ jobs:
           add: "package.json"
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
-          message: "Release ${{ steps.vars.outputs.tag }}"
+          message: "Release ${{ env.GITHUB_REF_NAME }}"
   build:
     needs: release
     runs-on: ubuntu-latest
