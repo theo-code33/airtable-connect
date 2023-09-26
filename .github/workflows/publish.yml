@@ -15,11 +15,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install dependencies
         run: npm ci
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
       - name: Publish package
         run: npm publish
         env:
