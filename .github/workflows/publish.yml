@@ -21,6 +21,8 @@ jobs:
         run: |
           VERSION=$(echo ${{ steps.vars.outputs.tag }} | cut -c 2-) && \
           jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json
+      - name: Show package.json
+        run: cat package.json
       - name: Commit release
         uses: EndBug/add-and-commit@v9
         with:
@@ -28,7 +30,6 @@ jobs:
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
           message: "Release ${{ steps.vars.outputs.tag }}"
-          tag_push: "--force"
   build:
     needs: release
     runs-on: ubuntu-latest
