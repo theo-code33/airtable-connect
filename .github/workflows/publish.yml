@@ -28,6 +28,7 @@ jobs:
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
           message: "Release ${{ steps.vars.outputs.tag }}"
+          tag_push: "--force"
   build:
     needs: release
     runs-on: ubuntu-latest
