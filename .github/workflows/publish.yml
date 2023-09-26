@@ -1,9 +1,8 @@
 name: Publish Airtable Connect Package to npmjs
 on:
-  workflow_dispatch:
-  # push:
-  #   tags:
-  #     - "v*"
+  push:
+    tags:
+      - "v*"
 jobs:
   release:
     runs-on: ubuntu-latest
