@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "",
+  "version": "0.2.20",
   "name": "@theo-dev/airtable-connect",
   "author": "Théo Gillet",
   "license": "ISC",
