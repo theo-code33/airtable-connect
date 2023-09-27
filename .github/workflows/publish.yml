@@ -29,6 +29,7 @@ jobs:
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
           message: "Release ${{ env.GITHUB_REF_NAME }}"
+          tag_push: "origin HEAD:refs/tags/${{ env.GITHUB_REF_NAME }}"
           # new_branch: main
   build:
     needs: release
