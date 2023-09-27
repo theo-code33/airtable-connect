@@ -23,13 +23,14 @@ jobs:
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
           message: "Release ${{ env.GITHUB_REF_NAME }}"
-          tag_push: "origin ${{ env.GITHUB_REF_NAME }} && git push"
-          # new_branch: main
+          new_branch: main
   build:
     needs: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v3
         with:
           node-version: "18.x"
