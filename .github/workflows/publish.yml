@@ -28,6 +28,7 @@ jobs:
           author_email: "gillettheo1@gmail.com"
           message: "Release $(echo $GITHUB_REF_NAME | cut -c 2-)"
           new_branch: main
+          pull: ""
   build:
     needs: release
     runs-on: ubuntu-latest
