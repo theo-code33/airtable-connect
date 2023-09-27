@@ -30,7 +30,6 @@ jobs:
           author_email: "gillettheo1@gmail.com"
           message: "Release ${{ steps.release.outputs.VERSION }}"
           new_branch: main
-          pull: "--rebase"
   build:
     needs: release
     runs-on: ubuntu-latest
