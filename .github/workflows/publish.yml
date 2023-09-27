@@ -26,15 +26,15 @@ jobs:
           add: "package.json"
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
-          message: "Release ${{ env.GITHUB_REF_NAME }}"
+          message: "Release $(echo $GITHUB_REF_NAME | cut -c 2-)"
           new_branch: main
   build:
     needs: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
+        # with:
+        #   ref: main
       - uses: actions/setup-node@v3
         with:
           node-version: "18.x"
