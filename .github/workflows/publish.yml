@@ -6,6 +6,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      LAST_VERSION: ${{ steps.release.outputs.LAST_VERSION }}
     steps:
       - uses: actions/checkout@v4
       - name: Install jq
@@ -13,7 +15,9 @@ jobs:
       - name: Release upgrade
         run: |
           VERSION=$(echo $GITHUB_REF_NAME | cut -c 2-) && \
-          jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json
+          jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
+          echo "Release version: $VERSION" && \
+          echo "LAST_VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
       - name: Show package.json
         run: cat package.json
       - name: Commit release
@@ -41,3 +45,20 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  remove_last_commit:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reset package version
+        run: |
+          LAST_VERSION=$(echo ${{ steps.release.outputs.LAST_VERSION }}) && \
+          jq '.version |="'$(echo $LAST_VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
+          echo "Last version: $LAST_VERSION"
+      - name: Remove last commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "package.json"
+          author_name: "Théo Gillet"
+          author_email: "gillettheo1@gmail.com"
+          message: "Release ${{ env.GITHUB_REF_NAME }} failed"
+          new_branch: main
