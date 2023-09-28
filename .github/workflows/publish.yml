@@ -67,5 +67,5 @@ jobs:
           add: "package.json"
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
-          message: "Release ${{ env.GITHUB_REF_NAME }} failed"
+          message: "Release ${{ needs.release.outputs.VERSION }} failed"
           new_branch: main
