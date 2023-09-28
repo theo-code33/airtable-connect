@@ -21,8 +21,6 @@ jobs:
           jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
           echo "Release version: $VERSION" && \
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-      - name: Show package.json
-        run: cat package.json
       - name: Commit release
         uses: EndBug/add-and-commit@v9
         with:
