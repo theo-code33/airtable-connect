@@ -7,13 +7,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     outputs:
-      LAST_VERSION: ${{ steps.release.outputs.LAST_VERSION }}
-      VERSION: ${{ steps.release.outputs.VERSION }}
+      LAST_VERSION: ${{ steps.release_upgrade.outputs.LAST_VERSION }}
+      VERSION: ${{ steps.release_upgrade.outputs.VERSION }}
     steps:
       - uses: actions/checkout@v4
       - name: Install jq
         run: sudo apt-get install jq -y
       - name: Release upgrade
+        id: release_upgrade
         run: |
           VERSION=$(echo $GITHUB_REF_NAME | cut -c 2-) && \
           jq '.version |="'$(echo $VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
@@ -28,7 +29,7 @@ jobs:
           add: "package.json"
           author_name: "Théo Gillet"
           author_email: "gillettheo1@gmail.com"
-          message: "Release ${{ steps.release.outputs.VERSION }}"
+          message: "Release ${{ steps.release_upgrade.outputs.VERSION }}"
           new_branch: main
   build:
     needs: release
@@ -48,7 +49,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   remove_last_commit:
-    needs: build
+    needs: [release, build]
     if: failure()
     runs-on: ubuntu-latest
     steps:
@@ -57,7 +58,7 @@ jobs:
           ref: main
       - name: Reset package version
         run: |
-          LAST_VERSION=$(echo ${{ steps.release.outputs.LAST_VERSION }}) && \
+          LAST_VERSION=$(echo ${{ needs.release.outputs.LAST_VERSION }}) && \
           jq '.version |="'$(echo $LAST_VERSION)'"' package.json > package.json.tmp && mv package.json.tmp package.json && \
           echo "Last version: $LAST_VERSION"
       - name: Remove last commit
