@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - "v*"
+      - "V*"
 jobs:
   release:
     runs-on: ubuntu-latest
