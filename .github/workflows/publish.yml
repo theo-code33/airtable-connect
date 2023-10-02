@@ -47,6 +47,11 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create new release
+        uses: ./.github/actions/create-release
+        with:
+          version: ${{ github.ref_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
   remove_last_commit:
     needs: [release, build]
     if: failure()

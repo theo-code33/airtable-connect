@@ -1,0 +1,11 @@
+name: "Create Release"
+description: "Create release with the new package version published"
+inputs:
+  version:
+    description: "The new version of release"
+    required: true
+  token:
+    description: "Github Token"
+runs:
+  using: "node16"
+  main: "dist/index.js"
