@@ -9811,12 +9811,16 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(4092);
 const github = __nccwpck_require__(8605);
 
-const generateNewRelease = async () => {
+const createRelease = async () => {
   try {
     const version = core.getInput('version');
     const token = core.getInput('token');
-    const context = github.context;
-    console.log(`version: ${version}`)
+
+    if(!version) core.setFailed("No version provided");
+    if(!token) core.setFailed("No token provided");
+
+    const { context } = github;
+    
     const octokit = github.getOctokit(token);
     await octokit.rest.repos.createRelease({
       owner: context.payload.repository.owner.login,
@@ -9834,7 +9838,7 @@ const generateNewRelease = async () => {
   } 
 }
 
-generateNewRelease()
+createRelease()
 })();
 
 module.exports = __webpack_exports__;

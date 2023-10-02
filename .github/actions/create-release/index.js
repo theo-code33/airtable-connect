@@ -1,12 +1,16 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-const generateNewRelease = async () => {
+const createRelease = async () => {
   try {
     const version = core.getInput('version');
     const token = core.getInput('token');
-    const context = github.context;
-    console.log(`version: ${version}`)
+
+    if(!version) core.setFailed("No version provided");
+    if(!token) core.setFailed("No token provided");
+
+    const { context } = github;
+    
     const octokit = github.getOctokit(token);
     await octokit.rest.repos.createRelease({
       owner: context.payload.repository.owner.login,
@@ -24,4 +28,4 @@ const generateNewRelease = async () => {
   } 
 }
 
-generateNewRelease()
+createRelease()
