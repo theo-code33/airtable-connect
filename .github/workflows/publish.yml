@@ -44,6 +44,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Publish package
+        if: success()
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
