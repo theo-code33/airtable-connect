@@ -49,7 +49,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create new release
-        uses: ./.github/actions/create-release
+        uses: theo-code33/create-release-action
         with:
           version: ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
