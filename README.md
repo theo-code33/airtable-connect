@@ -34,7 +34,7 @@ VITE_AIRTABLE_BASE_ID=
 
   ```javascript
   // If you create a .env file, you can use the following code to connect to Airtable
-  import { AirtableConnect } from "@theo-dev/airtable-connect";
+  import AirtableConnect from "@theo-dev/airtable-connect";
 
   const { AirtableData } = AirtableConnect;
 
@@ -46,7 +46,7 @@ VITE_AIRTABLE_BASE_ID=
 
   ```javascript
   // If you don't create a .env file, you can use the following code to connect to Airtable
-  import { AirtableConnect } from "@theo-dev/airtable-connect";
+  import AirtableConnect from "@theo-dev/airtable-connect";
 
   const { AirtableConfig, AirtableData } = AirtableConnect;
 
