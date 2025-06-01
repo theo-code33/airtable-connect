@@ -45,7 +45,7 @@ declare global {
    * @param action Function
    * @param completedOnly boolean
    */
-  interface ArgumentsRead {
+  export interface ArgumentsRead {
     base: any;
     table: string;
     view: string;
@@ -53,7 +53,7 @@ declare global {
     completedOnly?: boolean;
   }
 
-  interface ArgumentsReadByID {
+  export interface ArgumentsReadByID {
     base: any;
     table: string;
     id: string;
@@ -69,7 +69,7 @@ declare global {
    * @param table string
    * @param action Function
    */
-  interface ArgumentsCreateUpdate {
+  export interface ArgumentsCreateUpdate {
     base: any;
     datas: Array<Datas>;
     table: string;
@@ -85,7 +85,7 @@ declare global {
    * @param table string
    * @param action Function
    */
-  interface ArgumentsDelete {
+  export interface ArgumentsDelete {
     base: any;
     id: string;
     table: string;
@@ -99,7 +99,7 @@ declare global {
    * @param datas Array<Datas>
    * @param action Function
    */
-  interface ArgumentsClientCreateUpdate {
+  export interface ArgumentsClientCreateUpdate {
     datas: Array<Datas>;
     action?: Function;
   }
@@ -111,7 +111,7 @@ declare global {
    * @param action Function
    * @param completedOnly boolean
    */
-  interface ArgumentsClientRead {
+  export interface ArgumentsClientRead {
     action?: Function;
     completedOnly?: boolean;
   }
@@ -123,7 +123,7 @@ declare global {
    * @param id string
    * @param action Function
    */
-  interface ArgumentsClientDeleteReadByID {
+  export interface ArgumentsClientDeleteReadByID {
     id: string;
     action?: Function;
   }
